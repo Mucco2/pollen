@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+pollen-chart {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  padding: 1rem;
+  text-align: center;
+}
+
+pollen-chart h1 {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+pollen-chart .location-date {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #555;
+}
+
+pollen-chart .error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.chart-container {
+  max-width: 500px;
+  height: auto;
+  margin: 0 auto;
+  padding: 10rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+

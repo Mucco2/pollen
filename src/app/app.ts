@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { PollenChartComponent } from './pollen-chart.component';
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  selector: 'my-app',
+  standalone: true,
+  imports: [PollenChartComponent],
+  template: `
+    <h1>Pollental i Danmark 🌿</h1>
+    <pollen-chart></pollen-chart>
+  `
 })
-export class App {
-  protected title = 'pollen';
-}
+export class AppComponent {}
