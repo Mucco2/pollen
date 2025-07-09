@@ -1,0 +1,44 @@
+<div class="pollen-chart-wrapper">
+  <h1>Pollen i luften lige nu 🌿</h1>
+  <p id="location-date" class="location-date">{{ locationDateText }}</p>
+
+  <div class="chart-container">
+    <canvas baseChart
+      [data]="chartData"
+      [options]="chartOptions"
+      [type]="chartType"
+      height="450"
+      width="600">
+    </canvas>
+  </div>
+
+  
+  <div class="legend-info">
+    <h3>Forklaring:</h3>
+    <ul>
+      <li *ngFor="let category of categoryColors | keyvalue">
+        <span class="legend-color-box" [style.background-color]="category.value"></span>
+        {{ category.key }}: {{ getCategoryDescription(category.key) }}
+      </li>
+    </ul>
+  </div>
+
+  <p id="error-message" class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <footer>
+    <p>&copy; 2025 Pollen App</p>
+    <p>Data leveret af <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a></p>
+    <div class="pollen-footer-info">
+      <h3>Forstå pollentallet</h3>
+      <p>Pollentallet måles i grains/m³ og indikerer mængden af pollen i luften. Jo højere tal, desto flere symptomer kan du opleve, især hvis du er pollenallergiker.</p>
+      <p>Farverne i grafen og detaljerne hjælper dig med at vurdere niveauet:</p>
+      <ul>
+        <li><span class="legend-color-box low-pollen-color"></span> **Lav:** Få eller ingen symptomer for de fleste.</li>
+        <li><span class="legend-color-box moderate-pollen-color"></span> **Moderat:** Milde symptomer kan forekomme.</li>
+        <li><span class="legend-color-box high-pollen-color"></span> **Høj:** Symptomer er sandsynlige, især for allergikere.</li>
+        <li><span class="legend-color-box very-high-pollen-color"></span> **Meget Høj:** Kraftige symptomer er forventet.</li>
+      </ul>
+      <p>Hold dig opdateret og tag dine forholdsregler!</p>
+    </div>
+  </footer>
+</div>

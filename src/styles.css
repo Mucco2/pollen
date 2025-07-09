@@ -1,39 +1,35 @@
-pollen-chart {
-  display: block;
-  font-family: 'Inter', sans-serif;
-  color: #333;
-  padding: 1rem;
-  text-align: center;
+/* src/styles.css - Dette er din globale stylesheet */
+
+body {
+  background-color: #d3d0d0; /* En flot lysegrå nuance for hele siden */
+  margin: 0; /* Fjerner standard browser-margin */
+  padding: 0; /* Fjerner standard browser-padding */
+  font-family: 'Inter', sans-serif; /* Sætter en global font */
+  color: #333; /* Standard tekstfarve for hele siden */
 }
 
-pollen-chart h1 {
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+/* Definér dine CSS variabler her (anbefales at have dem globalt) */
+:root {
+  --primary-text-color: #333;
+  --secondary-text-color: #555;
+  --accent-color: #007bff;
+  --background-light: #1676d6;
+  --background-white: #fff;
+  --border-color: #e0e0e0;
+  --error-color: #dc3545;
+  --font-family-sans: 'Inter', sans-serif; /* Bruges af individuelle komponenter */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --spacing-unit: 1rem;
+  --border-radius-medium: 12px;
+  --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --background-light-grey: #f2f2f200; /* Variable for den globale baggrundsfarve */
 }
 
-pollen-chart .location-date {
-  margin-bottom: 1rem;
-  font-weight: 700;
-  color: #555;
-}
-
-pollen-chart .error-message {
-  color: red;
-  font-weight: bold;
-  margin-top: 1rem;
-}
-
-.chart-container {
-  max-width: 500px;
-  height: auto;
-  margin: 0 auto;
-  padding: 10rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-
-
-
-
+/* Du kan også tilføje andre globale styles her, f.eks. for skrifttyper */
+/* Eksempel på import af Google Fonts (tilføj i din index.html <head> også) */
+/*
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+*/

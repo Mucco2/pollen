@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PollenChartComponent } from './pollen-chart.component';
+import { PollenChartComponent } from './pollen-chart/pollen-chart.component';
 
 @Component({
   selector: 'my-app',

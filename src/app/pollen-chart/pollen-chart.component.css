@@ -1,0 +1,291 @@
+/* Komponent-specifik CSS for PollenChartComponent */
+
+.pollen-chart-wrapper {
+  padding: 1.5rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  background-color: var(--background-white, #fff);
+  border-radius: var(--border-radius-medium, 12px);
+  box-shadow: var(--shadow-medium, 0 10px 15px rgba(0, 0, 0, 0.1));
+  text-align: center;
+}
+
+h1 {
+  color: var(--primary-text-color, #333);
+  margin-bottom: 0.8rem;
+}
+
+.location-date {
+  color: var(--secondary-text-color, #555);
+  font-weight: var(--font-weight-bold, 700);
+  margin-bottom: 1.5rem;
+}
+
+.chart-container {
+  max-width: 700px;
+  height: auto;
+  margin: 0 auto 2rem auto;
+  background: var(--background-white, #fff);
+  border-radius: var(--border-radius-medium, 12px);
+  padding: 1rem;
+}
+
+/* Styles for de nye detaljekort */
+.pollen-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.pollen-detail-card {
+  background-color: var(--background-light, #f8f9fa);
+  padding: 1rem;
+  border-radius: var(--border-radius-medium, 12px);
+  box-shadow: var(--shadow-light, 0 4px 8px rgba(0, 0, 0, 0.05));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pollen-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.5rem;
+}
+
+.pollen-detail-card h3 {
+  margin: 0.5rem 0;
+  color: var(--primary-text-color, #333);
+  font-size: 1.1em;
+}
+
+.pollen-count {
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--primary-text-color, #333);
+  margin: 0.2rem 0;
+  font-size: 0.95em;
+}
+
+.pollen-category {
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  color: white;
+  font-weight: var(--font-weight-bold, 700);
+  margin-top: 0.5rem;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Styles for legenden */
+.legend-info {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: var(--background-light, #f8f9fa);
+  border-radius: var(--border-radius-medium, 12px);
+  text-align: left;
+}
+
+.legend-info h3 {
+  margin-top: 0;
+  color: var(--primary-text-color, #333);
+}
+
+.legend-info ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.legend-info li {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  color: var(--secondary-text-color, #555);
+}
+
+/* Style for fejlmeddelelser */
+.error-message {
+  color: var(--error-color, #dc3545);
+  font-weight: var(--font-weight-bold, 700);
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  border: 1px solid var(--error-color, #dc3545);
+  border-radius: var(--border-radius-medium, 12px);
+  background-color: rgba(220, 53, 69, 0.05); /* Brug hårdkodet rgba her, da var() med rgba() ikke virker direkte */
+}
+
+/* Styles for footer */
+footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color, #e0e0e0);
+  color: var(--secondary-text-color, #555);
+  font-size: 0.85em;
+}
+
+footer p {
+  margin: 0.5rem 0;
+}
+
+footer a {
+  color: var(--accent-color, #007bff);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.pollen-footer-info {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: var(--background-light, #f8f9fa);
+  border-radius: var(--border-radius-medium, 12px);
+  text-align: left;
+  color: var(--primary-text-color, #333);
+}
+
+.pollen-footer-info h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--primary-text-color, #333);
+  font-size: 1.2em;
+}
+
+.pollen-footer-info p {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+.pollen-footer-info ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.pollen-footer-info li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.95em;
+}
+
+/* Fælles farveboks-stil */
+.legend-color-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  margin-right: 0.8rem;
+  border: 1px solid var(--border-color, #e0e0e0);
+  flex-shrink: 0;
+}
+
+/* Specifikke farver for footer-legenden (bruger de samme farver som i din TS) */
+.low-pollen-color {
+  background-color: #34D399; /* Matches 'Low' */
+}
+
+.moderate-pollen-color {
+  background-color: #FBBF24; /* Matches 'Moderate' */
+}
+
+.high-pollen-color {
+  background-color: #F97316; /* Matches 'High' */
+}
+
+.very-high-pollen-color {
+  background-color: #EF4444; /* Matches 'Very High' */
+}
+
+/* Medieforespørgsler for responsivitet */
+@media (max-width: 768px) {
+  .pollen-chart-wrapper {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .chart-container {
+    padding: 0.5rem;
+    max-width: 100%;
+  }
+
+  .pollen-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .pollen-details-grid {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .pollen-chart-wrapper {
+    padding: 0.5rem;
+    margin: 0.5rem auto;
+  }
+
+  h1 {
+    font-size: 1.6em;
+  }
+
+  .location-date {
+    font-size: 0.9em;
+  }
+
+  .pollen-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pollen-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pollen-category {
+    font-size: 0.75em;
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+/* src/styles.css - Dette er din globale stylesheet */
+
+body {
+  background-color: #f2f2f2; /* En flot lysegrå nuance for hele siden */
+  margin: 0; /* Fjerner standard browser-margin */
+  padding: 0; /* Fjerner standard browser-padding */
+  font-family: 'Inter', sans-serif; /* Sætter en global font */
+  color: #333; /* Standard tekstfarve for hele siden */
+}
+
+/* Definér dine CSS variabler her (anbefales at have dem globalt) */
+:root {
+  --primary-text-color: #333;
+  --secondary-text-color: #555;
+  --accent-color: #007bff;
+  --background-light: #1676d6;
+  --background-white: #fff;
+  --border-color: #e0e0e0;
+  --error-color: #dc3545;
+  --font-family-sans: 'Inter', sans-serif; /* Bruges af individuelle komponenter */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --spacing-unit: 1rem;
+  --border-radius-medium: 12px;
+  --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --background-light-grey: #f2f2f2; /* Variable for den globale baggrundsfarve */
+}
+
+/* Du kan også tilføje andre globale styles her, f.eks. for skrifttyper */
+/* Eksempel på import af Google Fonts (tilføj i din index.html <head> også) */
+/*
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+*/
