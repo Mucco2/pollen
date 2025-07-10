@@ -1,57 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { NgChartsModule } from 'ng2-charts';
-import { CommonModule, KeyValuePipe } from '@angular/common'; // Tilføjet KeyValuePipe for *ngFor på objects
+import { CommonModule, KeyValuePipe } from '@angular/common'; // KeyValuePipe er nødvendig for *ngFor på objects
 import type { ChartOptions, ChartData } from 'chart.js';
 
 @Component({
   selector: 'pollen-chart',
   standalone: true,
-  imports: [NgChartsModule, CommonModule, KeyValuePipe], // KeyValuePipe tilføjet
-  template: `
-    <div class="pollen-chart-wrapper">
-      <h1>Pollen tal i Danmark 🌿</h1>
-      <p id="location-date" class="location-date">{{ locationDateText }}</p>
-
-      <div class="chart-container">
-        <canvas baseChart
-          [data]="chartData"
-          [options]="chartOptions"
-          [type]="chartType"
-          height="450"  width="600">
-        </canvas>
-      </div>
-
-      <footer>
-        <p>&copy; 2025 Pollen App</p>
-        <p>Data leveret af <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a></p>
-        <div class="pollen-footer-info">
-          <h3>Forstå pollentallet</h3>
-          <p>Pollentallet måles i grains/m³ og indikerer mængden af pollen i luften. Jo højere tal, desto flere symptomer kan du opleve, især hvis du er pollenallergiker.</p>
-          <p>Farverne i grafen og detaljerne hjælper dig med at vurdere niveauet:</p>
-          <ul>
-            <li *ngFor="let category of categoryColors | keyvalue">
-              <span class="legend-color-box" [style.background-color]="category.value"></span>
-              {{ category.key }}: {{ getCategoryDescription(category.key) }}
-            </li>
-          </ul>
-          <p>Hold dig opdateret og tag dine forholdsregler!</p>
-        </div>
-      </footer>
-
-      <p id="error-message" class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
-    </div>
-  `,
-  // CSS SKAL VÆRE I 'styles' ARRAY'ET, IKKE INDE I 'template'
-  
+  imports: [NgChartsModule, CommonModule, KeyValuePipe], // KeyValuePipe tilføjet for at understøtte 'categoryColors | keyvalue' i HTML
+  templateUrl: './pollen-chart.component.html', // <--- RETTET: Bruger ekstern HTML-fil
+  styleUrls: ['./pollen-chart.component.css']    // <--- RETTET: Bruger ekstern CSS-fil
 })
 export class PollenChartComponent implements OnInit {
 
-  locationDateText = 'Henter data for Hvidovre...';
+  locationDateText = 'Henter de seneste pollental for Hvidovre...';
   errorMessage = '';
 
   chartType: 'bar' = 'bar';
 
-  // Forbedret chartOptions
   chartOptions: ChartOptions<'bar'> = {
     responsive: true,
     maintainAspectRatio: false, // Vigtigt for at Chart.js respekterer dine højde/bredde indstillinger bedre
@@ -153,6 +118,10 @@ export class PollenChartComponent implements OnInit {
     latitude: 55.65,
     longitude: 12.47
   };
+
+  constructor() {
+    // Ingen binding nødvendig her, da tooltip callback kan defineres som arrow function hvis nødvendigt
+  }
 
   async ngOnInit() {
     await this.fetchAndDisplayPollenData();
